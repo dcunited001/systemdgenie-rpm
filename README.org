@@ -1,4 +1,15 @@
 
+* RPM For SystemD Genie
+
+#+begin_quote
+Ye olde cmake build, in a RPM
+
+Hopefully, I don't need to install the KDE polkit agent, if it doesn't exist
+#+end_quote
+
+* Resources (for rpmbuilds)
 
 + [[https://unix.stackexchange.com/questions/180496/what-option-specified-the-location-of-the-generated-rpm?rq=1][Defining a .rpmmacros file]]
 + [[https://docs.fedoraproject.org/en-US/packaging-guidelines/CMake/][Cmake macros]]
++ Sometimes =rpmbuild= complains (warns) about comment macros
+  - sometimes it just breaks.

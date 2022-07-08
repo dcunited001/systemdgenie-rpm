@@ -22,31 +22,30 @@ BuildRequires:  kf5-kcrash-devel
 BuildRequires:  kf5-ki18n-devel
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  kf5-kxmlgui-devel
+BuildRequires:  desktop-file-utils
 
 %description
 Systemd managment utility
 
 %prep
 %setup -q -n %{name}-master
-#% setup -q -n %{name}-%{version}
-#% autosetup -p0 -n %{name}-v%{version}
 
 %build
 %{cmake_kf5} -DCMAKE_BUILD_TYPE=Release
 %cmake_build
 
-#make %{?_smp_mflags}
-#% cmake_build
-
 %install
 %cmake_install
-
-#% install
-#% cmake_install
 
 %files
 %license COPYING
 %{_bindir}/%{name}
+%{_datadir}/applications/org.kde.%{name}.desktop
+%{_kf5_libexecdir}/kauth/%{name}helper
+%{_kf5_datadir}/dbus-1/system.d/org.kde.kcontrol.%{name}.conf
+%{_kf5_datadir}/dbus-1/system-services/org.kde.kcontrol.%{name}.service
+%{_kf5_datadir}/polkit-1/actions/org.kde.kcontrol.%{name}.policy
+%{_kf5_datadir}/kxmlgui5/%{name}/%{name}ui.rc
 
 %changelog
 * Tue May 31 2016 David Conner 0.99
